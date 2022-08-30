@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E8E91E028BDF585005ADF87 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8E91DF28BDF585005ADF87 /* FollowerListVC.swift */; };
 		2EEE875628BCE7BB00F95477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEE875528BCE7BB00F95477 /* AppDelegate.swift */; };
 		2EEE875828BCE7BB00F95477 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEE875728BCE7BB00F95477 /* SceneDelegate.swift */; };
 		2EEE875F28BCE7BD00F95477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEE875E28BCE7BD00F95477 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E8E91DF28BDF585005ADF87 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 		2EEE875228BCE7BB00F95477 /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEE875528BCE7BB00F95477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EEE875728BCE7BB00F95477 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				2EEE876B28BCF0E400F95477 /* FavouritesListVC.swift */,
 				2EEE876D28BD00CD00F95477 /* GFButton.swift */,
 				2EEE876F28BD041200F95477 /* GFTextField.swift */,
+				2E8E91DF28BDF585005ADF87 /* FollowerListVC.swift */,
 			);
 			path = GithubFollowers;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				2EEE876A28BCF09700F95477 /* SearchVC.swift in Sources */,
 				2EEE876E28BD00CD00F95477 /* GFButton.swift in Sources */,
 				2EEE875628BCE7BB00F95477 /* AppDelegate.swift in Sources */,
+				2E8E91E028BDF585005ADF87 /* FollowerListVC.swift in Sources */,
 				2EEE876C28BCF0E400F95477 /* FavouritesListVC.swift in Sources */,
 				2EEE875828BCE7BB00F95477 /* SceneDelegate.swift in Sources */,
 			);

@@ -11,6 +11,10 @@
 		2E38AEB728BE447E00AFCD74 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E38AEB628BE447E00AFCD74 /* GFBodyLabel.swift */; };
 		2E38AEB928BE454400AFCD74 /* GFAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E38AEB828BE454400AFCD74 /* GFAlertVC.swift */; };
 		2E38AEBB28BE4DF200AFCD74 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E38AEBA28BE4DF200AFCD74 /* UIViewController+Ext.swift */; };
+		2E59AD0628BF4F9100A63E04 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59AD0528BF4F9100A63E04 /* Follower.swift */; };
+		2E59AD0828BF50FD00A63E04 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59AD0728BF50FD00A63E04 /* User.swift */; };
+		2E59AD0B28BF58B900A63E04 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59AD0A28BF58B900A63E04 /* NetworkManager.swift */; };
+		2E59AD0E28BF649000A63E04 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59AD0D28BF649000A63E04 /* ErrorMessage.swift */; };
 		2E8E91E028BDF585005ADF87 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8E91DF28BDF585005ADF87 /* FollowerListVC.swift */; };
 		2EEE875628BCE7BB00F95477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEE875528BCE7BB00F95477 /* AppDelegate.swift */; };
 		2EEE875828BCE7BB00F95477 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEE875728BCE7BB00F95477 /* SceneDelegate.swift */; };
@@ -27,6 +31,10 @@
 		2E38AEB628BE447E00AFCD74 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 		2E38AEB828BE454400AFCD74 /* GFAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertVC.swift; sourceTree = "<group>"; };
 		2E38AEBA28BE4DF200AFCD74 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		2E59AD0528BF4F9100A63E04 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		2E59AD0728BF50FD00A63E04 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2E59AD0A28BF58B900A63E04 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		2E59AD0D28BF649000A63E04 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		2E8E91DF28BDF585005ADF87 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 		2EEE875228BCE7BB00F95477 /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEE875528BCE7BB00F95477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +59,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E59AD0028BF4A9D00A63E04 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2EEE876928BCF09700F95477 /* SearchVC.swift */,
+				2EEE876B28BCF0E400F95477 /* FavouritesListVC.swift */,
+				2E8E91DF28BDF585005ADF87 /* FollowerListVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		2E59AD0128BF4ADA00A63E04 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				2EEE876D28BD00CD00F95477 /* GFButton.swift */,
+				2EEE876F28BD041200F95477 /* GFTextField.swift */,
+				2E38AEB428BE42B700AFCD74 /* GFTitleLabel.swift */,
+				2E38AEB628BE447E00AFCD74 /* GFBodyLabel.swift */,
+				2E38AEB828BE454400AFCD74 /* GFAlertVC.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		2E59AD0228BF4B0000A63E04 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2E38AEBA28BE4DF200AFCD74 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2E59AD0328BF4BAC00A63E04 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				2EEE875528BCE7BB00F95477 /* AppDelegate.swift */,
+				2EEE875728BCE7BB00F95477 /* SceneDelegate.swift */,
+				2EEE875E28BCE7BD00F95477 /* Assets.xcassets */,
+				2EEE876028BCE7BD00F95477 /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		2E59AD0428BF4F8600A63E04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E59AD0528BF4F9100A63E04 /* Follower.swift */,
+				2E59AD0728BF50FD00A63E04 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2E59AD0928BF58A800A63E04 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2E59AD0A28BF58B900A63E04 /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		2E59AD0C28BF647A00A63E04 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2E59AD0D28BF649000A63E04 /* ErrorMessage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		2EEE874928BCE7BB00F95477 = {
 			isa = PBXGroup;
 			children = (
@@ -70,20 +144,14 @@
 		2EEE875428BCE7BB00F95477 /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				2EEE875528BCE7BB00F95477 /* AppDelegate.swift */,
-				2EEE875728BCE7BB00F95477 /* SceneDelegate.swift */,
-				2EEE875E28BCE7BD00F95477 /* Assets.xcassets */,
-				2EEE876028BCE7BD00F95477 /* LaunchScreen.storyboard */,
+				2E59AD0C28BF647A00A63E04 /* Utilities */,
+				2E59AD0928BF58A800A63E04 /* Manager */,
+				2E59AD0428BF4F8600A63E04 /* Model */,
 				2EEE876328BCE7BD00F95477 /* Info.plist */,
-				2EEE876928BCF09700F95477 /* SearchVC.swift */,
-				2EEE876B28BCF0E400F95477 /* FavouritesListVC.swift */,
-				2EEE876D28BD00CD00F95477 /* GFButton.swift */,
-				2EEE876F28BD041200F95477 /* GFTextField.swift */,
-				2E8E91DF28BDF585005ADF87 /* FollowerListVC.swift */,
-				2E38AEB428BE42B700AFCD74 /* GFTitleLabel.swift */,
-				2E38AEB628BE447E00AFCD74 /* GFBodyLabel.swift */,
-				2E38AEB828BE454400AFCD74 /* GFAlertVC.swift */,
-				2E38AEBA28BE4DF200AFCD74 /* UIViewController+Ext.swift */,
+				2E59AD0228BF4B0000A63E04 /* Extensions */,
+				2E59AD0128BF4ADA00A63E04 /* Custom Views */,
+				2E59AD0028BF4A9D00A63E04 /* Screens */,
+				2E59AD0328BF4BAC00A63E04 /* Support */,
 			);
 			path = GithubFollowers;
 			sourceTree = "<group>";
@@ -158,14 +226,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E59AD0828BF50FD00A63E04 /* User.swift in Sources */,
 				2EEE877028BD041200F95477 /* GFTextField.swift in Sources */,
 				2EEE876A28BCF09700F95477 /* SearchVC.swift in Sources */,
 				2EEE876E28BD00CD00F95477 /* GFButton.swift in Sources */,
 				2E38AEBB28BE4DF200AFCD74 /* UIViewController+Ext.swift in Sources */,
 				2EEE875628BCE7BB00F95477 /* AppDelegate.swift in Sources */,
 				2E38AEB928BE454400AFCD74 /* GFAlertVC.swift in Sources */,
+				2E59AD0E28BF649000A63E04 /* ErrorMessage.swift in Sources */,
 				2E38AEB728BE447E00AFCD74 /* GFBodyLabel.swift in Sources */,
+				2E59AD0628BF4F9100A63E04 /* Follower.swift in Sources */,
 				2E38AEB528BE42B700AFCD74 /* GFTitleLabel.swift in Sources */,
+				2E59AD0B28BF58B900A63E04 /* NetworkManager.swift in Sources */,
 				2E8E91E028BDF585005ADF87 /* FollowerListVC.swift in Sources */,
 				2EEE876C28BCF0E400F95477 /* FavouritesListVC.swift in Sources */,
 				2EEE875828BCE7BB00F95477 /* SceneDelegate.swift in Sources */,
@@ -307,7 +379,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UD7DDMT4QH;
+				DEVELOPMENT_TEAM = FSYW7H5XB9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubFollowers/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -321,7 +393,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.greg-ross-github-followers.GithubFollowers";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.greg-ross-github-followers.GithubFollowersApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

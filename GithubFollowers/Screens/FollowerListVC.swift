@@ -9,8 +9,16 @@ import UIKit
 
 class FollowerListVC: UIViewController {
     
+    enum Section{
+        case main
+    }
+    
     var username: String!
+    var followers: [Follower] = []
+    
+    
     var collectionView : UICollectionView!
+    var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     
 
     override func viewDidLoad() {
@@ -20,6 +28,7 @@ class FollowerListVC: UIViewController {
         configureCollectionView()
         
         getFollowers()
+        configureDataSource()
     }
     
     
@@ -37,11 +46,29 @@ class FollowerListVC: UIViewController {
     
     
     func configureCollectionView(){
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFlowLayout())
         view.addSubview(collectionView)
         
-        collectionView.backgroundColor = .systemPink
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
+    }
+    
+    
+    func createThreeColumnFlowLayout() -> UICollectionViewFlowLayout{
+        
+        let width = view.bounds.width
+        let padding: CGFloat = 12 // --> Padding at each side o the collectionView
+        let minimumItemSpacing: CGFloat = 10 // --> Spacing between each item
+        let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
+        
+        let itemWidth = availableWidth / 3
+        
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        
+        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
+    
+        return flowLayout
     }
     
     
@@ -52,9 +79,31 @@ class FollowerListVC: UIViewController {
                 self.presentGFAlertOnMainThread(alertTitle: "Bad stuff happened", message: error.rawValue, buttonTitle: "Ok")
             
             case .success(let followers):
-                print("Followers.count = \(followers.count)")
-                print(followers)
+                self.followers = followers
+                
+                // Call update data here, so that we know that the data exists
+                self.updateData()
             }
+        }
+    }
+    
+    
+    func configureDataSource(){
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
+            cell.set(follower: follower)
+            
+            return cell
+        })
+    }
+    
+    
+    func updateData(){
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(followers)
+        DispatchQueue.main.async {
+            self.dataSource.apply(snapshot, animatingDifferences: true)
         }
     }
 

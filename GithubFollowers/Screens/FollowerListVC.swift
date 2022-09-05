@@ -60,9 +60,7 @@ class FollowerListVC: UIViewController {
         showLoadingView()
         
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
-            
-//            #warning("Call Dismiss")
-            
+                    
             guard let self = self else {return}
             
             self.dismissLoadingView()
@@ -77,6 +75,15 @@ class FollowerListVC: UIViewController {
                 if followers.count < 100 { self.hasMoreFollowers = false}
                 
                 self.followers.append(contentsOf: followers)
+                
+                
+                if self.followers.isEmpty{
+                    let message = "This user doesn't have any followers. Go follow them 😊"
+                    DispatchQueue.main.async {
+                        self.showEmptyStateView(with: message, in: self.view)
+                    }
+                    return
+                }
                 
                 // Call update data here, so that we know that the data exists
                 self.updateData()

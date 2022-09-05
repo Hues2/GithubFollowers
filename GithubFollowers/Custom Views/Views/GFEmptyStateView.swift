@@ -14,12 +14,19 @@ class GFEmptyStateView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    init(message: String){
+        super.init(frame: .zero)
+        messageLabel.text = message
+        configure()
+    }
     
     
     private func configure(){
@@ -37,7 +44,13 @@ class GFEmptyStateView: UIView {
             messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -150),
             messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
-            messageLabel.heightAnchor.constraint(equalToConstant: 200)
+            messageLabel.heightAnchor.constraint(equalToConstant: 200),
+            
+            
+            logoimageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
+            logoimageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
+            logoimageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 170),
+            logoimageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 40)
         ])
         
     }

@@ -15,8 +15,10 @@ class FollowerListVC: UIViewController {
     
     var username: String!
     var followers: [Follower] = []
+    var filteredFollowers: [Follower] = []
     var page: Int = 1
     var hasMoreFollowers: Bool = true
+    var isSearching = false
     
     
     var collectionView : UICollectionView!
@@ -28,6 +30,7 @@ class FollowerListVC: UIViewController {
 
         configureViewController()
         configureCollectionView()
+        configureSearchController()
         
         getFollowers(username: username, page: page)
         configureDataSource()
@@ -54,6 +57,18 @@ class FollowerListVC: UIViewController {
         
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
+    
+    
+    func configureSearchController(){
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for a username"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        
+    }
+    
 
     
     func getFollowers(username: String, page: Int){
@@ -86,7 +101,7 @@ class FollowerListVC: UIViewController {
                 }
                 
                 // Call update data here, so that we know that the data exists
-                self.updateData()
+                self.updateData(on: self.followers)
             }
         }
     }
@@ -102,7 +117,7 @@ class FollowerListVC: UIViewController {
     }
     
     
-    func updateData(){
+    func updateData(on followers: [Follower]){
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
@@ -115,7 +130,7 @@ class FollowerListVC: UIViewController {
 
 
 
-extension FollowerListVC: UICollectionViewDelegate{
+extension FollowerListVC: UICollectionViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         // Calculate when the user is at the bottom of the collectionView
@@ -130,5 +145,31 @@ extension FollowerListVC: UICollectionViewDelegate{
         }
         
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let follower = followers[indexPath.item]
+    }
+    
+}
+
+
+
+extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text,
+              !filter.isEmpty else { return }
+        isSearching = true
+        
+        filteredFollowers = followers.filter{$0.login.lowercased().contains(filter.lowercased())}
+        updateData(on: filteredFollowers)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(on: followers)
+        isSearching = false
+    }
+    
     
 }

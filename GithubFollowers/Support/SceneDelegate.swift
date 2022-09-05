@@ -53,7 +53,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Create the tab bar controller with the navigation controlers (TabView and tab items in SwiftUI)
     func createTabBar() -> UITabBarController{
         let tabBar = UITabBarController()
+        
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().backgroundColor = .systemBackground
         UITabBar.appearance().tintColor = .systemGreen
+        
         tabBar.viewControllers = [createSearchNC(), createFavouritesNC()]
         return tabBar
     }

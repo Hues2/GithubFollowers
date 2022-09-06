@@ -34,7 +34,7 @@ class GFUserInfoHeaderVC: UIViewController {
         super.viewDidLoad()
         addSubviews()
         layoutUI()
-        
+        configureUIElements()
     }
     
     
@@ -46,7 +46,8 @@ class GFUserInfoHeaderVC: UIViewController {
         bioLabel.text = user.bio ?? "No bio available"
         bioLabel.numberOfLines = 3
         
-        locationImageView.image = UIImage(systemName: "mappin.and.ellipse")
+        locationImageView.image = UIImage(systemName: SFSymbols.location)
+        locationImageView.tintColor = .secondaryLabel
     }
     
     
